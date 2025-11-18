@@ -1,0 +1,245 @@
+/* Paleta de Colores: 
+   - Rosa Fuerte: #E84D76 (Header, Botón Principal)
+   - Rosa Pálido: #FCE8EE (Fondo, Placeholders)
+   - Blanco: #FFFFFF
+   - Texto Oscuro: #333333
+*/
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+    color: #333;
+}
+
+/* --- ESTILOS DEL ENCABEZADO (HEADER) --- */
+header {
+    background-color: #E84D76;
+    color: white;
+    padding: 10px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.logo .boutique {
+    font-size: 0.8em;
+    font-weight: normal;
+}
+
+.page-title {
+    font-size: 1.8em;
+    font-weight: 300;
+    margin: 0;
+    /* Ajuste para centrar el título con el diseño nuevo */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.cart {
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+/* --- CONTENEDOR PRINCIPAL Y DISEÑO (LAYOUT) --- */
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+    display: flex;
+    gap: 20px;
+    /* Cambio: Ahora solo hay un flex entre el formulario y el placeholder de la imagen */
+}
+
+/* --- CONTENIDO PRINCIPAL (FORMULARIO) --- */
+.main-content {
+    flex-grow: 1;
+    display: flex;
+    gap: 20px;
+    /* CAMBIO: La clase full-width hace que ocupe todo el espacio si no hay sidebar */
+}
+
+.form-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    flex: 2; /* Ocupa más espacio que el placeholder */
+}
+
+.image-placeholder {
+    flex: 1; /* Ocupa menos espacio */
+    background-color: #FCE8EE;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4em;
+    color: rgba(232, 77, 118, 0.4); /* Un rosa semitransparente */
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+    height: 450px; 
+}
+
+/* --- ESTILOS DEL FORMULARIO --- */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.form-group.half {
+    flex: 1;
+}
+
+.form-group.two-thirds {
+    flex: 2; 
+}
+
+.form-group.one-third {
+    flex: 1; 
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #666;
+    font-size: 0.9em;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="url"],
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 1em;
+    background-color: #fff;
+    transition: border-color 0.3s;
+}
+
+input:focus, select:focus {
+    border-color: #E84D76;
+    outline: none;
+}
+
+input::placeholder, select:invalid {
+    color: #999;
+}
+
+/* --- BOTONES DE ACCIÓN --- */
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.btn-cancel, .btn-register {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s, opacity 0.3s;
+}
+
+.btn-cancel {
+    background-color: white;
+    color: #E84D76;
+    border: 1px solid #E84D76;
+}
+
+.btn-cancel:hover {
+    background-color: #FCE8EE;
+}
+
+.btn-register {
+    background-color: #E84D76;
+    color: white;
+    font-weight: bold;
+}
+
+.btn-register:hover {
+    background-color: #D3436A;
+}
+
+/* Mensajes de Estado */
+.status-message {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+    display: none;
+}
+
+.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* --- RESPONSIVE DESIGN --- */
+@media (max-width: 992px) {
+    .header-content {
+        padding: 0 10px;
+    }
+    .page-title {
+        font-size: 1.3em;
+    }
+    .container {
+        flex-direction: column;
+        padding: 0 10px;
+    }
+
+    .main-content {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    .form-group.half,
+    .form-group.one-third,
+    .form-group.two-thirds {
+        flex: 1;
+        width: 100%;
+    }
+
+    /* Ocultar el placeholder en móvil para maximizar el espacio del formulario */
+    .image-placeholder {
+        display: none; 
+    }
+}
